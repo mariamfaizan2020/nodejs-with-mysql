@@ -6,15 +6,34 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Bootstrap demo</title>
 </head>
+<style>
+  body{
+      display:flex;
+      flex-direction: column;
+      margin:2px;
+  }
+   .main{
+       display:flex;
+       justify-content: space-around;
+       background-color: blueviolet;
 
-<body>
-    <div class="main">
+   }
+   .main a{
+       font-size: 15px;
+       font-weight: bolder;
+       color:white
+   }
+</style>
 
-        <a href="">ADD STUDENT</a>
-        <a href="">SEARCH STUDENT</a>
-        <a href="">UPDATE STUDENT</a>
-        <a href="">DELETE STUDENT</a>
-        <a href="">VIEW STUDENT</a>
+<body >
+    <h1>PROJECT IDEA</h1>
+    <div class="main" >
+
+        <a  href="/add">ADD STUDENT</a>
+        <a href="/search">SEARCH STUDENT</a>
+        <a href="/update">UPDATE STUDENT</a>
+        <a href="/delete">DELETE STUDENT</a>
+        <a href="/view">VIEW STUDENT</a>
     
 
     </div>

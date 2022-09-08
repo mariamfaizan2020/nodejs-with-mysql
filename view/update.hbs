@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Document</title>
+ <link rel="styleSheet" href="style.css"/>
+</head>
+
+<body>
+    <div class="">
+        <form action="/updatesearch">
+            <h3>SEARCH STUDENT</h3>
+
+            <hr>
+            <label for="phn"><b>Phone no</b></label>
+            <input type="phone" placeholder="type phone no to be searched" name="phone" id="phone" required>
+
+            <button type="submit" class="registerbtn">SEARCH STUDENT</button>
+            <a href="./ " style="color:black">BACK TO HOME PAGE</a>
+
+            <br>
+
+            {{!-- search user from phoneno design is complted --}}
+
+            {{!-- now making form for updaeting the Student --}}
+            {{#if mesg1}}
+            {{!-- form --}}
+             <div class="container">
+        <form action="/updatestudent">
+        <h3>UPDATE STUDENT</h3>
+      
+    <hr>
+{{#data}}
+    <label for="name"><b>Student name</b></label>
+    <input type="text" placeholder="Enter Name" value="{{username}}" name="name" id="name" required>
+
+    <label for="phn"><b>Phone no</b></label>
+    <input type="phone" placeholder="Enter Phone Number"value="{{phoneno}}" name="phone" id="phone" required readonly>
+
+    <label for="eml-id"><b>Email Id</b></label>
+    <input type="email" placeholder="Enter Email Id"  value="{{emailid}}"name="email" id="email" required readonly> 
+   
+  <div class="gender_g">
+     <strong>Gender</strong>
+     <input type="radio" name="gender"  id="" value="male"> Male
+     <input type="radio" name="gender" id=""  value="female">  Female
+  </div>
+    <button type="submit" class="registerbtn">UPDATE STUDENT</button>
+{{/data}}
+  
+    <a href="./" style="color:black">BACK TO HOME PAGE</a> <br>
+     
+   
+            {{/if}}
+
+            {{#if mesg2}}
+            <h3>Data Not Found!</h3>
+            {{/if}}
+        </form>
+
+    </div>
+</body>
+
+
+</html>
