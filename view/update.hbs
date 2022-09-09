@@ -15,7 +15,7 @@
 
             <hr>
             <label for="phn"><b>Phone no</b></label>
-            <input type="phone" placeholder="type phone no to be searched" name="phone" id="phone" required>
+            <input type="phone" style="width:300px"placeholder="type phone no to be searched" name="phone" id="phone" required>
 
             <button type="submit" class="registerbtn">SEARCH STUDENT</button>
             <a href="./ " style="color:black">BACK TO HOME PAGE</a>
@@ -25,10 +25,21 @@
             {{!-- search user from phoneno design is complted --}}
 
             {{!-- now making form for updaeting the Student --}}
+  {{#if umesg}}
+  <h3>Data updated!</h3>
+  {{/if}}
+
+  {{#if mesg2}}
+            <h3>Data Not Found!</h3>
+            {{/if}}
+           </form>
+
+    </div>  
+          
             {{#if mesg1}}
             {{!-- form --}}
              <div class="container">
-        <form action="/updatestudent">
+         <form action="/updatestudent">
         <h3>UPDATE STUDENT</h3>
       
     <hr>
@@ -48,19 +59,16 @@
      <input type="radio" name="gender" id=""  value="female">  Female
   </div>
     <button type="submit" class="registerbtn">UPDATE STUDENT</button>
+
 {{/data}}
   
     <a href="./" style="color:black">BACK TO HOME PAGE</a> <br>
+      </form>
+   </div>
+            {{/if}}
+
+            
      
-   
-            {{/if}}
-
-            {{#if mesg2}}
-            <h3>Data Not Found!</h3>
-            {{/if}}
-        </form>
-
-    </div>
 </body>
 
 

@@ -28,7 +28,14 @@ app.get("/delete",(req,res)=>{
     res.render("delete")
 });
 app.get("/view",(req,res)=>{
-    res.render("view")
+    let qry="select * from students"
+    mysql.query(qry,(err,results)=>{
+        if(err) throw err
+        else{
+            res.render("view",{data:results})
+        }
+    })
+    // res.render("view")
 });
 app.get("/addstudent",(req,res)=>{
    //fetching data from form
@@ -90,9 +97,10 @@ app.get("/updatesearch",(req,res)=>{
 app.get("/updatestudent",(req,res)=>{
     //fetch data
     const {name,gender,phone}=req.query
+    // res.send(req.query)
 
     let qry="update students set username=?,gender=? where phoneno=?";
-    mysql.query(qry,[name,phone,gender],(err,results)=>{
+    mysql.query(qry,[name,gender,phone],(err,results)=>{
         if(err) throw err
         else{
             if(results.affectedRows>0){
@@ -100,6 +108,24 @@ app.get("/updatestudent",(req,res)=>{
             }
         }
     })
+})
+
+app.get("/removestudent",(req,res)=>{
+    //fetch data
+    const {phone}=req.query
+
+    let qry="delete from students where phoneno=?"
+    mysql.query(qry,[phone],(err,results)=>{
+        if(err) throw err
+        else{
+            if(results.affectedRows>0){
+                res.render("delete",{mesg1:true,mesg2:false})
+            }else{
+                res.render("delete",{mesg2:true,mesg1:false})
+            }
+        }
+    })
+ 
 })
 //create Server
 app.listen(port,(err)=>{
